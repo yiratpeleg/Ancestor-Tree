@@ -1,4 +1,4 @@
-
+#pragma once
 #include <string>
 using namespace std;
 
@@ -18,18 +18,29 @@ public:
 };
 
 namespace family{
-    class Tree{
+    class Tree {
         Node* root;
     public:
-        Tree(string name){this->root= new Node(name);}
-        Tree& addFather(string father);
-        Tree& addMother(string mother);
+        Tree(string name) { this->root = new Node(name); }
+
+        Tree& addFather(string name, string father);
+
+        Tree& addMother(string name, string mother);
+
         string relation(string name);
+
         string find(string name);
+
         void remove(string name);
+
+        void display();
+
+        Node *getTree() {
+            return this->root;
+        }
     };
-    Node& getTree(){
-        return this->root;
-    }
+
+
 }
+
 
