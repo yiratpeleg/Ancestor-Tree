@@ -35,8 +35,8 @@ namespace family{
 
         void display();
 
-        Node *getTree() {
-            return this->root;
+        Tree& getTree() {
+            return *this;
         }
     };
 
