@@ -125,14 +125,16 @@ TEST_CASE("find function"){
     CHECK(T.find("mother")==string("Yardena"));
     CHECK((T.find("grandmother")==string("Mazal") || T.find("grandmother")==string("Shosana")) );
     CHECK((T.find("grandfather")==string("Yosef") || T.find("grandfather")==string("Moshe")) );
-    CHECK(T.find("great-grandmother")==string("Rachel") || T.find("great-grandmother")==string("Lea") || T.find("great-grandmother")==string("Tzipi") || T.find("great-grandmother")==string("Mali"));
-    CHECK(T.find("great-grandfather")==string("Avi") || T.find("great-grandfather")==string("Yakov") || T.find("great-grandfather")==string("Itzik") || T.find("great-grandfather")==string("Nati"));
-    CHECK((T.find("great-great-grandmother")==string("Reut") || T.find("great-great-grandmother")==string("Meytal") || T.find("great-great-grandmother")==string("May") || T.find("great-great-grandmother")==string("Liel") || T.find("great-great-grandmother")==string("Sahar") || T.find("great-great-grandmother")==string("Batel") || T.find("great-great-grandmother")==string("Batia") || T.find("great-great-grandmother")==string("Bracha"));
-    CHECK((T.find("great-great-grandfather")==string("Udi") || T.find("great-great-grandfather")==string("Shimon") || T.find("great-great-grandfather")==string("Roei") || T.find("great-great-grandfather")==string("Yarin") || T.find("great-great-grandfather")==string("Noam") || T.find("great-great-grandfather")==string("Yizhak") || T.find("great-great-grandfather")==string("Nitay") || T.find("great-great-grandfather")==string("Neria"));
+    CHECK((T.find("great-grandmother")==string("Rachel") || T.find("great-grandmother")==string("Lea") || T.find("great-grandmother")==string("Tzipi") || T.find("great-grandmother")==string("Mali")));
+    CHECK((T.find("great-grandfather")==string("Avi") || T.find("great-grandfather")==string("Yakov") || T.find("great-grandfather")==string("Itzik") || T.find("great-grandfather")==string("Nati")));
+    CHECK((T.find("great-great-grandmother")==string("Reut") || T.find("great-great-grandmother")==string("Meytal") || T.find("great-great-grandmother")==string("May") || T.find("great-great-grandmother")==string("Liel") || T.find("great-great-grandmother")==string("Sahar") || T.find("great-great-grandmother")==string("Batel") || T.find("great-great-grandmother")==string("Batia") || T.find("great-great-grandmother")==string("Bracha")));
+    CHECK((T.find("great-great-grandfather")==string("Udi") || T.find("great-great-grandfather")==string("Shimon") || T.find("great-great-grandfather")==string("Roei") || T.find("great-great-grandfather")==string("Yarin") || T.find("great-great-grandfather")==string("Noam") || T.find("great-great-grandfather")==string("Yizhak") || T.find("great-great-grandfather")==string("Nitay") || T.find("great-great-grandfather")==string("Neria")));
 
 };
 
 TEST_CASE("remove function"){
+    Tree T("Orian");
+    BuildTree(T);
     T.remove("Udi");
     T.remove("Shimon");
     T.remove("Roei");
