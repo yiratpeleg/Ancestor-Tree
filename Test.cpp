@@ -112,11 +112,11 @@ TEST_CASE("relation function"){
     CHECK(T.relation("Nitay")==string("great-great-grandfather"));
     CHECK(T.relation("Neria")==string("great-great-grandfather"));
     CHECK(T.relation("Orian")==string("me"));
-    CHECK_THROWS(T.relation("abra")==string("unrelated"));
-    CHECK_THROWS(T.relation("xyz")==string("unrelated"));
-    CHECK_THROWS(T.relation("us")==string("unrelated"));
-    CHECK_THROWS(T.relation("Yirat")==string("unrelated"));
-    CHECK_THROWS(T.relation("notHERE")==string("unrelated"));
+    CHECK(T.relation("abra")==string("unrelated"));
+    CHECK(T.relation("xyz")==string("unrelated"));
+    CHECK(T.relation("us")==string("unrelated"));
+    CHECK(T.relation("Yirat")==string("unrelated"));
+    CHECK(T.relation("notHERE")==string("unrelated"));
 };
 
 TEST_CASE("find function"){
@@ -129,7 +129,9 @@ TEST_CASE("find function"){
     CHECK((T.find("great-grandfather")==string("Avi") || T.find("great-grandfather")==string("Yakov") || T.find("great-grandfather")==string("Itzik") || T.find("great-grandfather")==string("Nati")));
     CHECK((T.find("great-great-grandmother")==string("Reut") || T.find("great-great-grandmother")==string("Meytal") || T.find("great-great-grandmother")==string("May") || T.find("great-great-grandmother")==string("Liel") || T.find("great-great-grandmother")==string("Sahar") || T.find("great-great-grandmother")==string("Batel") || T.find("great-great-grandmother")==string("Batia") || T.find("great-great-grandmother")==string("Bracha")));
     CHECK((T.find("great-great-grandfather")==string("Udi") || T.find("great-great-grandfather")==string("Shimon") || T.find("great-great-grandfather")==string("Roei") || T.find("great-great-grandfather")==string("Yarin") || T.find("great-great-grandfather")==string("Noam") || T.find("great-great-grandfather")==string("Yizhak") || T.find("great-great-grandfather")==string("Nitay") || T.find("great-great-grandfather")==string("Neria")));
-
+    CHECK_THROWS(T.find("uncle"));
+    CHECK_THROWS(T.find("saba"));
+    CHECK_THROWS(T.find("aba"));
 };
 
 TEST_CASE("remove function"){
