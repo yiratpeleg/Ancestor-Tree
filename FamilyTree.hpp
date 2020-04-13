@@ -15,6 +15,22 @@ public:
     string getName(){
         return this->name;
     }
+    Node* getMother(){
+        return this->mother;
+    }
+    Node* getFather(){
+        return this->father;
+    }
+    void setNode(string toAdd,int sex){
+        if(sex == 0) {
+            Node *ans = new Node(toAdd);
+            this->father = ans;
+        }
+        else{
+            Node* ans = new Node(toAdd);
+            this->mother=ans;
+        }
+    }
 };
 
 namespace family{
@@ -35,12 +51,15 @@ namespace family{
 
         void display();
 
+        Node* getNode(){
+            return this->root;
+        }
+
         Tree& getTree() {
             return *this;
         }
     };
-
-
 }
+void addInOrder(Node* root,string name,string toAdd,int sex);
 
 
