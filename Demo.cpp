@@ -19,9 +19,9 @@ int main() {
 	 .addFather("Isaac", "Avraham")
 	 .addFather("Avraham", "Terah");
 
-//	cout<< T.getNode()->getName()<<endl;
-//	cout<< T.getNode()->getFather()->getName()<<endl;
-//	cout<< T.getNode()->getMother()->getName()<<endl;
+	cout<< T.getNode()->getName()<<endl;
+	cout<< T.getNode()->getFather()->getName()<<endl;
+	cout<< T.getNode()->getMother()->getName()<<endl;
 
 //	T.display();                        // displays the tree in a human-friendly format.
 //

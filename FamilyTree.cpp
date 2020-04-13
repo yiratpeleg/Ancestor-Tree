@@ -27,6 +27,7 @@ void Tree::display(){
 }
 
 void addInOrder(Node* root ,string name, string toAdd,int sex){
+    if(root==NULL) return;
     if(sex==0 && root->getName()==name && root->getFather()==NULL){
         root->setNode(toAdd,sex);
         return;
@@ -39,6 +40,5 @@ void addInOrder(Node* root ,string name, string toAdd,int sex){
         addInOrder(root->getMother(), name, toAdd, sex);
         addInOrder(root->getFather(), name, toAdd, sex);
     }
-    return;
 }
 
