@@ -75,6 +75,7 @@ void addInOrder(Node* root,string name,string toAdd,int sex,int height);
 void relationFind(Node * root, string name,int* height,int* sex);
 
 void findRec(Node * root, string name,string& ans);
+void printTree(Node* root, int space);
 
 
 

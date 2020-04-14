@@ -17,8 +17,9 @@ int main() {
 	 .addFather("Yaakov", "Isaac")
 	 .addMother("Yaakov", "Rivka")
 	 .addFather("Isaac", "Avraham")
-	 .addFather("Avraham", "Terah");
-
+	 .addFather("Avraham", "Terah")
+     .addMother("Rachel","tzipi")
+     .addMother("tzipi","livnat");
 
 	T.display();                        // displays the tree in a human-friendly format.
 	cout << T.relation("Yaakov") << endl;  // prints "father"
@@ -26,13 +27,16 @@ int main() {
 	cout << T.relation("Rivka") << endl;  // prints "grandmother"
 	cout << T.relation("Avraham") << endl;  // prints "great-grandfather"
 	cout << T.relation("Terah") << endl;  // prints "great-great-grandfather"
-	cout << T.relation("xyz") << endl;  // prints "unrelated"
+	cout << T.relation("livnat") << endl;  // prints "unrelated"
 	cout << T.relation("Yosef") << endl;  // prints "me"
 
 	cout << T.find("mother") << endl;  // prints "Rachel"
 	cout << T.find("great-great-grandfather") << endl;  // prints "Terah"
+	cout<<T.find("great-grandmother")<<endl;
+
+
 	try {
-		cout << T.find("uncle") << endl;  // throws an exception
+		cout << T.find("zd") << endl;  // throws an exception
 	} catch (const exception& ex) {
 	 	cout << ex.what() << endl;  // prints "The tree cannot handle the 'uncle' relation"
 	}

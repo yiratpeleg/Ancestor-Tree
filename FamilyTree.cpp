@@ -1,6 +1,7 @@
 #include "FamilyTree.hpp"
 #include <iostream>
 using namespace family;
+#define COUNT 10
 
 Tree& Tree::addFather(string name, string father){
     addInOrder(this->root,name,father,0,1);
@@ -11,6 +12,7 @@ Tree& Tree::addMother(string name, string mother){
     addInOrder(this->root,name,mother,1,1);
     return *this;
 }
+
 string Tree:: relation(string name){
     if(this->root->getName()==name)return "me";
     if(this->root->getMother()->getName()==name) return "mother";
@@ -30,10 +32,9 @@ string Tree:: relation(string name){
         ans = ans+"grandfather";
     }
     else ans = ans+"grandmother";
-
     return ans;
-
 }
+
 string Tree::find(string name){
     if(name=="me") return this->root->getName();
     if(name=="mother") return this->root->getMother()->getName();
@@ -41,16 +42,14 @@ string Tree::find(string name){
     string temp ="";
     string& ans=temp;
     findRec(this->root, name,ans);
-    if(ans=="")
-        throw runtime_error("Didnt found in tree");
     return ans;
-
 }
-void Tree::remove(string name){
 
+void Tree::remove(string name){
+    return;
 }
 void Tree::display(){
-
+    printTree(this->root,0);
 }
 
 void addInOrder(Node* root ,string name, string toAdd,int sex,int height){
@@ -83,17 +82,30 @@ void relationFind(Node * root, string name,int* height,int* sex){
 void findRec(Node * root, string name,string &ans) {
     if (name == "grandmother" && root->getMother()->getMother() != NULL) {
         ans = root->getMother()->getMother()->getName();
+        return;
     } else if (name == "grandmother" && root->getFather()->getMother() != NULL) {
         ans = root->getFather()->getMother()->getName();
+        return;
     } else if (name == "grandfather" && root->getFather()->getFather() != NULL) {
         ans = root->getFather()->getFather()->getName();
+        return;
     } else if (name == "grandfather" && root->getMother()->getFather() != NULL) {
         ans = root->getMother()->getFather()->getName();
+        return;
     }
-    if (name.size() > 6) {
-        findRec(root->getFather(), name.substr(6), ans);
-        findRec(root->getMother(), name.substr(6), ans);
-    }
-    return;
+    if((name!="grandmother" && name!="grandfather") && (name.length()<6 || name.substr(0,6)!="great-")) throw runtime_error("Didnt found in tree");
+    if((name!="grandmother" && name!="grandfather"))findRec(root->getFather(), name.substr(6), ans);
+    if((name!="grandmother" && name!="grandfather")&& ans=="")findRec(root->getMother(), name.substr(6), ans);
+}
+
+void printTree(Node* root,int space){
+    if(root==NULL) return;
+    space+=COUNT;
+    printTree(root->getMother(),space);
+    cout<<endl;
+    for (int i = COUNT; i < space; i++)
+        cout<<" ";
+    cout<<root->getName()<<"\n";
+    printTree(root->getFather(),space);
 }
 
