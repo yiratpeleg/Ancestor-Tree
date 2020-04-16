@@ -16,6 +16,21 @@ public:
         this->sex=sex;
         this->height=height;
     }
+
+    ~ Node(){
+       if(father!=NULL) delete father;
+       if(mother!=NULL) delete mother;
+
+    }
+
+    void setFatherNull(){
+        this->father=NULL;
+    }
+
+    void setMotherNull(){
+        this->mother=NULL;
+    }
+
     string getName(){
         return this->name;
     }
@@ -49,6 +64,8 @@ namespace family{
     public:
         Tree(string name) { this->root = new Node(name,0,0); }
 
+        ~ Tree(){ delete root;}
+
         Tree& addFather(string name, string father);
 
         Tree& addMother(string name, string mother);
@@ -70,12 +87,17 @@ namespace family{
         }
     };
 }
-void addInOrder(Node* root,string name,string toAdd,int sex,int height);
+void addInOrder(Node* root,string name,string toAdd,int sex,int height,int* check);
 
 void relationFind(Node * root, string name,int* height,int* sex);
 
 void findRec(Node * root, string name,string& ans);
+
 void printTree(Node* root, int space);
+
+void findSubTree(Node * root, string name, Node** runner);
+
+void deleteSubTree(Node* runner);
 
 
 
