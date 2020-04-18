@@ -18,9 +18,8 @@ public:
     }
 
     ~ Node(){
-       if(father!=NULL) delete father;
-       if(mother!=NULL) delete mother;
-
+        setFatherNull();
+        setMotherNull();
     }
 
     void setFatherNull(){

@@ -34,7 +34,7 @@ int main() {
 //     cout<<T.find("great-great-grandmother")<<endl;
 //    cout<<T.find("great-great-great-grandmother")<<endl;
 
-T.remove("Rachel");
+T.remove("Yoni");
 T.remove("Yaakov");
 T.display();
 	cout<<T.relation("Yaakov")<<endl;

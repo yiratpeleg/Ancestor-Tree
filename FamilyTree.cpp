@@ -56,12 +56,12 @@ void Tree::remove(string name) {
     Node *runner = NULL;
     findSubTree(this->root, name, &toRemove); //find the subtree we want to delete.
     if (toRemove == NULL) throw runtime_error("The name is'nt in the Tree");
-    if (toRemove->getMother()->getName() == name){
+    if (toRemove->getMother()!=NULL && toRemove->getMother()->getName() == name){
         runner = toRemove->getMother();
         deleteSubTree(runner);
         toRemove->setMotherNull();
     }
-    if (toRemove->getFather()->getName() == name) {
+    if (toRemove->getFather()!=NULL && toRemove->getFather()->getName() == name) {
         runner = toRemove->getFather();
         deleteSubTree(runner);
         toRemove->setFatherNull();
